@@ -1,0 +1,10 @@
+{
+  "test": {
+    "prefix": "test1",
+    "body": ["expands? jumps? $1 $2 !"]
+  },
+  "test2": {
+    "prefix": "test2",
+    "body": ["multi $1", "line $2", "snippet$0"]
+  }
+}
