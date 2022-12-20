@@ -41,6 +41,10 @@ packer.init({
 -- Install your plugins here
 return packer.startup(function(use)
 
+  -- PERSONNAL PLUGINS
+  use("/Users/adamfraga/plugins/test.nvim")
+  --[[ use("/Users/adamfraga/plugins/nvim-gpt.nvim") ]]
+
   -- ESSENTIALS
   use("wbthomason/packer.nvim") -- Have packer manage itself
   use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
@@ -107,6 +111,10 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   })
+
+  -- GIT
+
+  use('lewis6991/gitsigns.nvim')
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
