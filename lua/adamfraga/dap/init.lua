@@ -6,7 +6,7 @@ local dapui = require("dapui")
 local HOME = os.getenv "HOME"
 
 -- (Adjust version if brew update package
-local llvm_version = "15.0.6"
+local llvm_version = "15.0.7"
 
 local DEBUGGER_LOCATION = HOME .. "/.config/nvim/debugger"
 

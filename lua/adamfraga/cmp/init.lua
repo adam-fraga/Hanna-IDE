@@ -11,6 +11,10 @@ end
 require("luasnip/loaders/from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "/Users/adamfraga/.config/nvim/my-snippets" } })
 
+-- Load React & html snippets in JS files
+require('luasnip').filetype_extend("javascript", { "javascriptreact" })
+require('luasnip').filetype_extend("javascript", { "html" })
+
 local check_backspace = function()
   local col = vim.fn.col(".") - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
@@ -67,7 +71,7 @@ cmp.setup({
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
-    ["<C-j>"] = cmp.mapping(function(fallback)
+    ["<TAB>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expandable() then
@@ -83,7 +87,7 @@ cmp.setup({
       "i",
       "s",
     }),
-    ["<C-k>"] = cmp.mapping(function(fallback)
+    ["<S-TAB>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then

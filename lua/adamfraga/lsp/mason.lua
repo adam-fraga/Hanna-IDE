@@ -32,6 +32,12 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
   end
 
+  if server == "taplo" then
+    local taplo_opts = require "adamfraga.lsp.settings.taplo"
+    opts = vim.tbl_deep_extend("force", taplo_opts, opts)
+  end
+
+
   if server == "tsserver" then
     local tsserver_opts = require "adamfraga.lsp.settings.tsserver"
     opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
@@ -43,7 +49,6 @@ for _, server in pairs(servers) do
   end
 
   if server == "emmet_ls" then
-    print(vim.inspect(server))
     local emmet_ls_opts = require "adamfraga.lsp.settings.emmet_ls"
     opts = vim.tbl_deep_extend("force", emmet_ls_opts, opts)
   end
@@ -71,7 +76,6 @@ for _, server in pairs(servers) do
 
   if server == "rust_analyzer" then
     local rust_opts = require "adamfraga.lsp.settings.rust"
-    -- opts = vim.tbl_deep_extend("force", rust_opts, opts)
     local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
     if not rust_tools_status_ok then
       return

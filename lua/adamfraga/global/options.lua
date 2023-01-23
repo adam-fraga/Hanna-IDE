@@ -40,9 +40,9 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.fn.sign_define('DapBreakpoint', {text='🔴', texthl='red', linehl='', numhl=''})
-vim.fn.sign_define('DapBreakpointCondition', {text='❓', texthl='red', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', {text='🛑', texthl='yellow', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpoint', {text='👾', texthl='red', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpointCondition', {text='🕷', texthl='red', linehl='', numhl=''})
+vim.fn.sign_define('DapStopped', {text='🏴', texthl='yellow', linehl='', numhl=''})
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
