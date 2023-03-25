@@ -1,4 +1,4 @@
-require "adamfraga.global."
+require "adamfraga.global"
 require "adamfraga.comment"
 require "adamfraga.keymaps"
 require "adamfraga.treesitter"

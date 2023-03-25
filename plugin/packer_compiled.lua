@@ -297,7 +297,7 @@ _G.packer_plugins = {
   ["test.nvim"] = {
     loaded = true,
     path = "/Users/adamfraga/.local/share/nvim/site/pack/packer/start/test.nvim",
-    url = "/Users/adamfraga/plugins/test.nvim"
+    url = "https://github.com//Users/adamfraga/plugins/test.nvim"
   },
   ["tokyodark.nvim"] = {
     loaded = true,

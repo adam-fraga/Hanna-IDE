@@ -70,7 +70,7 @@ return {
         $ chmod +x ~/.local/bin/rust-analyzer
     --]]
     -- cmd = { os.getenv "HOME" .. "/.local/bin/rust-analyzer" },
-    cmd = { os.getenv "HOME" .. "/.local/share/nvim/lsp_servers/rust/rust-analyzer" },
+    cmd = { os.getenv "HOME" .. "/.local/share/nvim/mason/bin/rust-analyzer" },
     on_attach = require("adamfraga.lsp.handlers").on_attach,
     capabilities = require("adamfraga.lsp.handlers").capabilities,
 

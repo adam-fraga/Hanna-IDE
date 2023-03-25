@@ -6,12 +6,11 @@ local dapui = require("dapui")
 local HOME = os.getenv "HOME"
 
 -- (Adjust version if brew update package
-local llvm_version = "15.0.7"
+local llvm_version = "16.0.0"
 
 local DEBUGGER_LOCATION = HOME .. "/.config/nvim/debugger"
 
 local LLDB_BIN = "/opt/homebrew/Cellar/llvm/" .. llvm_version .. "/bin/lldb-vscode"
-local PHP_BIN = DEBUGGER_LOCATION .. "/vscode-php-debug/out/phpDebug.js"
 
 require("dapui").setup({
   layouts = {
@@ -102,7 +101,7 @@ dap.configurations.javascript = {
     name = 'Attach to process',
     type = 'node2',
     request = 'attach',
-    processId = require'dap.utils'.pick_process,
+    processId = require 'dap.utils'.pick_process,
   },
 }
 
@@ -112,7 +111,6 @@ dap.configurations.python = {
     type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
     request = "launch",
     name = "Launch file",
-
     -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
 
     program = "${file}", -- This configuration will launch the current file if used.
@@ -146,20 +144,6 @@ dap.configurations.cpp = {
   },
 }
 
-dap.configurations.php = {
-  {
-    name= 'Run current script',
-    type = 'php',
-    request = 'launch',
-    cwd = '${fileDirName}',
-    program = '${file}',
-    name = 'Listen for xdebug',
-    port = '9003',
-    log = true,
-    runTimeExecutable = 'php',
-  },
-}
-
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
 
@@ -173,19 +157,13 @@ dap.adapters.lldb = {
 dap.adapters.node2 = {
   type = 'executable',
   command = 'node',
-  args = {os.getenv('HOME') .. '/.config/nvim/debugger/vscode-node-debug2/out/src/nodeDebug.js'},
+  args = { os.getenv('HOME') .. '/.config/nvim/debugger/vscode-node-debug2/out/src/nodeDebug.js' },
 }
 
 dap.adapters.python = {
   type = "executable",
-  command = "/Users/adamfraga/.config/nvim/debugger/debugpy/bin/python3",
+  command = os.getenv('HOME') .. ".config/nvim/debugger/debugpy/bin/python3",
   args = { "-m", "debugpy.adapter" },
-}
-
-dap.adapters.php = {
-  type = 'executable',
-  command = 'node',
-  args = { PHP_BIN },
 }
 
 dap.adapters.nlua = function(callback, config)
