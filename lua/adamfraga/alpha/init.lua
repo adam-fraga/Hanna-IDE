@@ -34,7 +34,7 @@ local function footer()
   -- local fortune = handle:read("*a")
   -- handle:close()
   -- return fortune
-  return "\"Tell me and I forget. Teach me and I remember. Involve me and I learn.\" –Benjamin Franklin"
+  return "\"Hanna IDE or Nothing\" –Adm FRG"
 end
 
 dashboard.section.footer.val = footer()
